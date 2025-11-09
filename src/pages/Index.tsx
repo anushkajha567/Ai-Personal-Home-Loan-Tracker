@@ -30,14 +30,14 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-30"
           style={{
             backgroundImage: `url(${heroBg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-accent/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/95 to-accent/10" />
         
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
