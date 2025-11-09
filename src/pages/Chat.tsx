@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Send, Loader2, CheckCircle2, XCircle, FileText, User, TrendingUp } from "lucide-react";
 import { toast } from "sonner";
+import heroBg from "@/assets/hero-bg.jpg";
 
 interface Message {
   role: "user" | "assistant";
@@ -208,8 +209,18 @@ const Chat = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/30 to-background">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen relative overflow-hidden">
+      <div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+      
+      <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="mb-8 text-center">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             AI Loan Assistant
@@ -221,7 +232,7 @@ const Chat = () => {
 
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Chat Interface */}
-          <Card className="lg:col-span-2 p-6 shadow-lg">
+          <Card className="lg:col-span-2 p-6 shadow-elegant border-2 border-blue-grey-lighter backdrop-blur-sm bg-card/95">
             <div className="flex flex-col h-[600px]">
               <div className="flex-1 overflow-y-auto mb-4 space-y-4">
                 {messages.map((message, index) => (
@@ -279,7 +290,7 @@ const Chat = () => {
           {/* Status Panel */}
           <div className="space-y-6">
             {/* Customer KYC Data */}
-            <Card className="p-6 shadow-lg">
+            <Card className="p-6 shadow-card border-2 border-blue-grey-lighter backdrop-blur-sm bg-card/95">
               <div className="flex items-center gap-2 mb-4">
                 <User className="w-5 h-5 text-primary" />
                 <h3 className="font-semibold text-lg">Customer Details</h3>
@@ -321,7 +332,7 @@ const Chat = () => {
 
             {/* Credit Score */}
             {customerData.creditScore && (
-              <Card className="p-6 shadow-lg">
+              <Card className="p-6 shadow-card border-2 border-blue-grey-lighter backdrop-blur-sm bg-card/95">
                 <div className="flex items-center gap-2 mb-4">
                   <TrendingUp className="w-5 h-5 text-primary" />
                   <h3 className="font-semibold text-lg">Credit Assessment</h3>
@@ -337,7 +348,7 @@ const Chat = () => {
             )}
 
             {/* Loan Status */}
-            <Card className="p-6 shadow-lg">
+            <Card className="p-6 shadow-card border-2 border-blue-grey-lighter backdrop-blur-sm bg-card/95">
               <div className="flex items-center gap-2 mb-4">
                 <FileText className="w-5 h-5 text-primary" />
                 <h3 className="font-semibold text-lg">Application Status</h3>
